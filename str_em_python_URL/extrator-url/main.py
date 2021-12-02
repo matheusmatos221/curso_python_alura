@@ -3,6 +3,13 @@
 # URL
 url = "https://bytebank.com/cambio?moedaDestino=dolar&quantidade=100&moedaOrigem=real"
 
+# Sanitização da URL
+url = url.replace(" ", "")
+
+# Validação da URL
+if url.strip() == "":
+    raise ValueError("A URL está vazia")
+
 # Separa a URL em URL Base e URL Parâmetros
 indice_interrogacao = url.find("?")
 url_base = url[:indice_interrogacao]
